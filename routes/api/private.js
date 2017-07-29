@@ -2,6 +2,7 @@
 
 const router = require('koa-router')()
 const Article = require('../../models/articleSchema')
+const Category = require('../../models/categorySchema')
 
 router.prefix('/api/v1/private')
 
@@ -35,6 +36,20 @@ router.post('/article/create', async (ctx, next) => {
 
   let newArticle = await Article.create(newArticleObj)
   console.log(newArticle)
+})
+
+// Create category
+router.post('/category/create', async (ctx, next) => {
+  let displayName = ctx.request.body.displayName
+  let name = ctx.request.body.name
+
+  let newCategoryObj = {
+    displayName,
+    name
+  }
+
+  let newCategory = await Category.create(newCategoryObj)
+  console.log(newCategory)
 })
 
 module.exports = router

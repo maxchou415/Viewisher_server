@@ -11,6 +11,7 @@ const articleSchema = new Schema({
   category: { type: String },
   featurePhoto: { type: String },
   showTime: { type: Date },
+  recommend: { type: Boolean, default: false },
 
   articleId: { type: String },
   postBy: { type: String },
